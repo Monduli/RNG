@@ -19,6 +19,8 @@ class Application(tk.Frame):
 		"""
 		Creates the buttons and input areas.
 		"""
+		# the display has 2 entry fields with 2 labels
+		# and a button that generates the random number
 		tk.Label(self._master, text="Number 1").grid(row=0)
 		tk.Label(self._master, text="Number 2").grid(row=1)
 		self.to_set = tk.Label(self._master, text=self.result_text)
@@ -34,20 +36,25 @@ class Application(tk.Frame):
 		"""
 		Calculates the result given the two input numbers.
 		"""
+		# gets the inputs
 		x = int(self.text1.get())
 		y = int(self.text2.get())
+		# generates the random number
 		result = random.randint(x, y)
+		# formats the string
 		self.result_text = "Result: " + str(result) + "."
+		# puts the text on the screen
 		self.to_set['text'] = self.result_text
 
-#create window
-#with two input spaces
-#with text "Please enter 2 numbers. A number in this range will be produced."
+# create the window
 window = tk.Tk()
 window.title("RNG")
 window.iconbitmap("free-d8.ico")
-canvas = tk.Canvas(window, width=400, height=300)
-app = Application(window)
-app.mainloop()
 
-#display result
+#experimental - need to fix
+canvas = tk.Canvas(window, width=400, height=300)
+
+#creates the application in the window
+app = Application(window)
+#run it
+app.mainloop()
